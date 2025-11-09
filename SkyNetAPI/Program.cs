@@ -20,6 +20,16 @@ builder.Services.AddTransient<KafkaConsumerService>(_ =>
     new KafkaConsumerService(bootstrapServer, topic, "waybill-group", 
         _.GetRequiredService<IWaybillRepository>()));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDev", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") 
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 app.MapGet("/", () => "SkyNet API + Kafka consumer ✅");
@@ -41,6 +51,6 @@ app.MapGet("/waybills/{waybillNumber}", async (string waybillNumber, IWaybillSer
 // Resolve and run Kafka consumer
 var kafka = app.Services.GetRequiredService<KafkaConsumerService>();
 _ = Task.Run(() => kafka.StartConsumingAsync(CancellationToken.None));
-
+app.UseCors("AllowAngularDev");
 // Run web API
 await app.RunAsync();
