@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyNetImportManager", "SkyNetImportManager\SkyNetImportManager.csproj", "{7DB31A60-0719-4EE0-93DC-52F2E80FE8E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkyNetAPI", "SkyNetAPI\SkyNetAPI.csproj", "{23A9E3A7-216A-45C0-A548-33D43740504B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DB31A60-0719-4EE0-93DC-52F2E80FE8E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB31A60-0719-4EE0-93DC-52F2E80FE8E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB31A60-0719-4EE0-93DC-52F2E80FE8E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB31A60-0719-4EE0-93DC-52F2E80FE8E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23A9E3A7-216A-45C0-A548-33D43740504B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23A9E3A7-216A-45C0-A548-33D43740504B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23A9E3A7-216A-45C0-A548-33D43740504B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23A9E3A7-216A-45C0-A548-33D43740504B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
