@@ -11,5 +11,5 @@ export interface WaybillDetails {
     recipientSuburb: string;
     recipientPostalCode: string;
 
-    parcelInfo: ParcelInfo;
+    parcelInfo: ParcelInfo[];
 }

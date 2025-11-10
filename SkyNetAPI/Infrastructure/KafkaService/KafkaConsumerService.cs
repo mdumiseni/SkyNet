@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using SkyNetAPI.Application;
 using SkyNetAPI.Application.EntityMappers;
 using SkyNetAPI.Domain.Entities;
+using SkyNetAPI.Infrastructure.KafkaService.Models;
 using SkyNetAPI.ViewModels;
 
 namespace SkyNetAPI.Infrastructure.KafkaService;
@@ -70,19 +71,12 @@ public class KafkaConsumerService
     
     private async Task HandleMessageAsync(string message)
     {
-        var waybillsDto = JsonConvert.DeserializeObject<WaybillDto>(message);
+        var waybillData = JsonConvert.DeserializeObject<WaybillData>(message);
 
-        if (waybillsDto != null)
+        if (waybillData != null)
         {
-            var waybill = waybillsDto.ToEntity();
-            var parcelsDto = waybillsDto.ParcelInfo.ToDto();
-
-            var parcels = new List<Parcel>();
-            parcels.Add(waybillsDto.ParcelInfo.ToEntity());
-
-            waybill.Parcels = parcels;
-            var result = await _waybillRepository.AddWaybill(waybill);
-        
+            var result = await _waybillRepository.AddWaybillData(waybillData);
+            
             Console.WriteLine($"Processing message: {message}");
         }
     }

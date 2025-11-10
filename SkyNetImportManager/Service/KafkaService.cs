@@ -53,7 +53,8 @@ public class KafkaService
         var config = new ProducerConfig
         {
             BootstrapServers = _bootstrapServers,
-            CompressionType = CompressionType.Snappy
+            CompressionType = CompressionType.Snappy,
+            
         };
 
         using var producer = new ProducerBuilder<Null, string>(config).Build();

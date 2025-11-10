@@ -14,14 +14,10 @@ import { Observable } from 'rxjs';
   imports: [CommonModule, WaybillInfoComponent, FormsModule],
   template: `
     <div class="search-container">
-        <h2>Search Waybill</h2>
-        <input 
-          type="text" 
-          id="waybillNumber" 
-          placeholder="Enter Waybill Number"
+        <input  type="text" id="search-input" placeholder="Enter Waybill Number"
           [(ngModel)]="searchTerm"
           (keyup.enter)="searchWaybill()">
-        <button (click)="searchWaybill()" [disabled]="isLoading">
+        <button  id="search-button" (click)="searchWaybill()" [disabled]="isLoading">
           {{ isLoading ? 'Searching...' : 'Search' }}
         </button>
 
@@ -33,15 +29,17 @@ import { Observable } from 'rxjs';
           <app-waybill-info [waybill]="waybill"></app-waybill-info>
         </section>
     </div>
+    
   `,
   styleUrls: ['./home.css']
 })
 export class HomeComponent {
+
   searchTerm: string = '';
   private apiUrl = 'http://localhost:5000/waybills';
   private http = inject(HttpClient);
   
-  waybillFound: boolean = false; // Flag to track if waybill was successfully found
+  waybillFound: boolean = false;
   isLoading: boolean = false;
   errorMessage: string = '';
   
@@ -53,14 +51,14 @@ export class HomeComponent {
     senderPostalCode: '',
     recipientSuburb: '',
     recipientPostalCode: '',
-    parcelInfo: {
+    parcelInfo: [{
       id: "",
       length: 0,
       breadth: 0,
       height: 0,
       mass: 0,
       parcelNumber: ''
-    }
+    }]
   };
 
   searchWaybill() {

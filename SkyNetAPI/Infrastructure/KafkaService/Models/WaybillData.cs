@@ -1,8 +1,7 @@
-﻿namespace SkyNetAPI.ViewModels;
+﻿namespace SkyNetAPI.Infrastructure.KafkaService.Models;
 
-public class WaybillDto
+public class WaybillData
 {
-    public Guid Id { get; set; }
     public string WaybillNumber { get; set; } = "";
     public string ServiceType { get; set; } = "";
     
@@ -12,5 +11,5 @@ public class WaybillDto
     public string RecipientSuburb { get; set; } = "";
     public string RecipientPostalCode { get; set; } = "";
 
-    public List<ParcelInfoDto> ParcelInfo { get; set; } = new ();
+    public ParcelInfoData ParcelInfo { get; set; } = new ();
 }

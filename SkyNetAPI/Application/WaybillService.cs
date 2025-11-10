@@ -22,14 +22,24 @@ public class WaybillService : IWaybillService
         var waybill = await _waybillRepository.GetWaybillByWaybillNumberAsync(waybillNumber);
 
         if (waybill is null) return null;
-        
-        var dto = waybill.ToDto();
-        if (waybill.Parcels.Any())
+
+        var dto = new WaybillDto()
         {
-            dto.ParcelInfo = dto.ParcelInfo.ToDto();
-        }
-
+            WaybillNumber = waybill.WaybillNumber,
+            ServiceType = waybill.ServiceType,
+            SenderSuburb = waybill.SenderSuburb,
+            SenderPostalCode = waybill.SenderPostalCode,
+            RecipientSuburb = waybill.RecipientSuburb,
+            RecipientPostalCode = waybill.RecipientPostalCode,
+            ParcelInfo = waybill.Parcels.Select(x => new ParcelInfoDto()
+            {
+                ParcelNumber = x.ParcelNumber,
+                Length = x.Length,
+                Breadth = x.Breadth,
+                Height = x.Height,
+                Mass = x.Mass
+            }).ToList()
+        };
         return dto;
-
     }
 }

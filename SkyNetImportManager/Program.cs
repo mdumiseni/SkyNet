@@ -11,9 +11,9 @@ while (true)
     {
         Console.WriteLine("Watching folder for new files...");
 
-        var incoming = @"./Incoming/WaybillInfo.csv";
+        var incoming = @"./Incoming/testData.csv";
         
-        var processed = @"./processed/WaybillInfo.csv";
+        var processed = @"./processed/testData.csv";
 
         if (!File.Exists(incoming))
         {

@@ -5,14 +5,9 @@ import {HomeComponent} from './home/home';
   selector: 'app-root',
   imports: [HomeComponent],
   template: `
-   <main>
-    <header class="brand-name">
-      <img class="brand-logo" src="https://skynetworldwide.com/za/wp-content/uploads/2023/02/skynet-logo.png.webp" alt="logo" aria-hidden="true">
-    </header>
-    <section class="content">
+   <div class="main-content">
       <app-home></app-home>
-    </section>
-  </main>
+   </div>
   `,
 })
 export class App {}

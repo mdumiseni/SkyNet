@@ -1,4 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
 body {
-  font-family: 'Be Vietnam Pro', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to the top */
+    min-height: 100vh;
+    padding-top: 50px; /* Add space at the top */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* --- NEW: Background Image Styles --- */
+    background-image: url('https://skynetworldwide.com/za/wp-content/uploads/2023/02/IMG_8453-scaled.jpg'); /* Replace with your image URL */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background fixed while scrolling */
+    background-color: #f4f4f9; /* Fallback background color */
+    /* --- END NEW --- */
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 600px; /* Limit width for better readability */
+    z-index: 1; /* Ensure content is above background if any overlay is added */
 }
