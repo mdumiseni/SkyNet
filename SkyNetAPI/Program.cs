@@ -32,8 +32,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-app.MapGet("/", () => "SkyNet API + Kafka consumer ✅");
-
 app.MapGet("/waybills/{id:Guid}", async (Guid id, IWaybillService waybillService) =>
 {
     var waybill = await waybillService.GetWaybillByIdAsync(id);
